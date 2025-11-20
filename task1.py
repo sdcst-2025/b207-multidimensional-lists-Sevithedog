@@ -14,8 +14,7 @@ Check the assertion tests for expected output.
 Note that this could also be done with a single list and a formula to modify the list content!
 """
 
-table = [
-    [],
+table =[
     [10,11,12,13,14,15,16,17,18,19,20,20,20,20,20,20,21,22,23,24,25],
     [10,11,12,13,14,15,16,17,18,19,20,20,20,20,20,20,21,22,23,24,25],
     [10,11,12,13,14,15,16,17,18,19,20,20,20,20,20,20,21,22,23,24,25],
@@ -36,11 +35,18 @@ table = [
     [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20],
     [-1,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19]
 ]
+def makedict(table):
+    dict = {}
+    for i in range(len(table)):
+        dict[i] = table[i]
+    return dict
+def target(lvl,ac,table):
+    dict = makedict(table)
+    row = dict[lvl]
+    n = abs(ac - 10)
+    tg = row[n]
+    return tg
 
-def target(lvl,ac):
-    return
-
-def tests():
-    assert target(5,7) == 11
-    assert target(10,-10) == 20
-    assert target(17,-3) == 13
+assert target(5,7,table) == 11
+assert target(10,-10,table) == 20
+assert target(17,-3,table) == 13
