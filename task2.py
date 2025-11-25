@@ -25,8 +25,8 @@ games = [
     ]
 
 def make(teams):
-    for i in teams:
-        teamData = {}
+    teamData = {}
+    for i in teams:  
         teamData[i] = {}
         teamData[i]['gamesPlayed'] = 0
         teamData[i]['wins'] = 0
@@ -41,6 +41,7 @@ def main(games,teams):
     for game in games:
         home = game['home']
         away = game['away']
+        print(teamData)
         teamData[home]['gamesPlayed'] += 1
         teamData[away]['gamesPlayed'] += 1
         if game['homeScore'] > game['awayScore']:
@@ -52,10 +53,10 @@ def main(games,teams):
         else:
             teamData[home]['losses'] += 1
             teamData[away]['wins'] += 1
-        teamData[home]['goalsFor'] += game['homescore']
+        teamData[home]['goalsFor'] += game['homeScore']
         teamData[home]['goalsAgainst'] += game['awayScore']
         teamData[away]['goalsFor'] += game['awayScore']
-        teamData[away]['goalsAgainst'] += game['awayScore']
+        teamData[away]['goalsAgainst'] += game['homeScore']
     return teamData
 def tests():
     assert teamData['BC']['gamesPlayed'] == 12
