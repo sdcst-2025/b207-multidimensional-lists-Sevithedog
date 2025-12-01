@@ -63,6 +63,9 @@ If the Pokémon becomes enraged, the flame burns fiercely.
 
 
 
+    
+
+
 pokemon = [
   {
     "id": 1,
@@ -31847,3 +31850,25 @@ pokemon = [
   }
 ]
 
+def lookup(pokemon):
+    choice = input("Enter 1 to search for a pokemon by ID, enter 2 to search for a pokemon by english name: ")
+    try:
+        choice = float(choice)
+    except:
+        print("Please enter only the number 1 or 2")
+    if choice == 1: 
+        search = input("Enter ID: ")
+        for i in range(len(pokemon)): 
+            if pokemon[i]['id'] == search:
+                print(pokemon[i])
+                return 
+    elif choice == 2: 
+        search = input("Enter english name: ")
+        for i in range(len(pokemon)):
+            if pokemon[i]['name']['english'] == search:
+                print(pokemon[i])
+
+lookup(pokemon)
+"""for i in range(4):
+  if pokemon[i]['id'] == 3:
+    print("idk bruv")"""
