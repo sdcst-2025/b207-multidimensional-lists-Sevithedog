@@ -31858,10 +31858,10 @@ def lookup(pokemon):
         print("Please enter only the number 1 or 2")
     if choice == 1: 
         search = input("Enter ID: ")
-        for i in range(len(pokemon)): 
-            if pokemon[i]['id'] == search:
-                print(pokemon[i])
-                return 
+        for i in pokemon:
+                if float(i['id']) == float(search):
+                  print(i)
+                  return 
     elif choice == 2: 
         search = input("Enter english name: ")
         for i in range(len(pokemon)):
