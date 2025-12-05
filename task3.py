@@ -31860,13 +31860,23 @@ def lookup(pokemon):
         search = input("Enter ID: ")
         for i in pokemon:
                 if float(i['id']) == float(search):
-                  print(i)
+                  print(f"{i['name']['english']} I choose you!.")
+                  print(f"{i['description']}")
+                  print(f"{i['name']['english']} is a {i['type']} type pokemon.")
+                  print(f"It is a {i['species']}.")
+                  print(f"{i['profile']}")
                   return 
     elif choice == 2: 
         search = input("Enter english name: ")
-        for i in range(len(pokemon)):
-            if pokemon[i]['name']['english'] == search:
-                print(pokemon[i])
+        for i in pokemon:
+            name = i['name']['english']
+            name == str(name)
+            if name.casefold() == search.casefold():
+                  print(f"{name} I choose you!.")
+                  print(f"{i['description']}")
+                  print(f"{name} is a {i['type']} type pokemon.")
+                  print(f"It is a {i['species']}.")
+                  print(f"{i['profile']}")
 
 lookup(pokemon)
 """for i in range(4):
